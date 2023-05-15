@@ -1,8 +1,16 @@
 [package]
 name = "dellkvm"
 version = "0.1.0"
+authors = ["Mike Cornell"]
 edition = "2021"
+description = "A simple tool to switch monitor inputs on Dell U3421WE"
+readme = "README.md"
+repository = "https://github.com/mcornell/dellkvm"
+license = "MIT"
+keywords = ["monitor", "kvm"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+
