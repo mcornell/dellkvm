@@ -4,8 +4,23 @@ It may work with other Dell monitors and other linux distros, but they have not 
 
 It requires the ddcutil package to be installed. It also must be run with sudo
 
+to build, you're going to want the cargo-deb plugin to build a debian package
+
 ```sh
-sudo ./dellkvm
+cargo install cargo-deb
+cargo deb
+```
+
+to install:
+
+```sh
+sudo apt install target/debian/dellkvm_0.1_0_amd64.deb
+```
+
+to run:
+
+```sh
+sudo dellkvm
 ```
 
 should yield output similar to this:
