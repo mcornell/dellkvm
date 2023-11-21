@@ -1,10 +1,8 @@
 This is a simple tool that allows switching between the USB-C input and the HDMI 1 input on the Dell W3421WE monitor on ubuntu
 
-It may work with other Dell monitors and other linux distros, but they have not been tested.
+It may work with other Dell monitors and other linux distros, but they have not been tested.  At this point, only deb packages have been created. The deb package will install the ddcutil package required to query the monitor.
 
-It requires the ddcutil package to be installed. It also must be run with sudo
-
-to build, you're going to want the cargo-deb plugin to build a debian package
+To build, you're going to want the cargo-deb plugin to build a debian package
 
 ```sh
 cargo install cargo-deb
