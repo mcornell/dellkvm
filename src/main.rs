@@ -14,19 +14,18 @@ fn main() {
     let input_source_info: Vec<&str> = first_line.split_whitespace().collect();
     println!("Current Active Source: {:?}", input_source_info);
 
-    let mut command = Command::new("ddcutil");
-    command.arg("setvcp");
-    command.arg("60");
+    let mut ddcutil_command = Command::new("ddcutil");
+    ddcutil_command.arg("setvcp").arg("60");
     
     if vec!["x1b", "x1B"].iter().any(|&i| i == input_source_info[3]) {
-        command.arg("0x11");
+        ddcutil_command.arg("0x11");
     } else {
-        command.arg("0x1b");
+        ddcutil_command.arg("0x1b");
     }
 
-    let output = command.output().unwrap();
+    let output = ddcutil_command.output().expect("Failed to execute ddcutil to swtich inputs");
     
-    println!("Command: {:?} {:?}", command.get_program(), command.get_args());
+    println!("Command: {:?} {:?}", ddcutil_command.get_program(), ddcutil_command.get_args());
     println!("stdout: {}", String::from_utf8(output.stdout).unwrap());
     println!("stderr: {}", String::from_utf8(output.stderr).unwrap());
 }
