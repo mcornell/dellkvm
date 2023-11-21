@@ -2,11 +2,9 @@ use std::{process::Command, io::{BufReader, BufRead}};
 
 fn main() {
     let mut input_source_command = Command::new("ddcutil");
-    input_source_command.arg("getvcp");
-    input_source_command.arg("60");
-    input_source_command.arg("-t");
+    input_source_command.arg("getvcp").arg("60").arg("-t");
 
-    let input_soutce_command_output = input_source_command.output().unwrap();
+    let input_soutce_command_output = input_source_command.output().expect("Failed to execute ddcutil");
 
     let input_reader = BufReader::new(&input_soutce_command_output.stdout[..]);
     let first_line = input_reader.lines().next().unwrap().unwrap();
