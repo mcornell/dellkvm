@@ -6,8 +6,10 @@ fn main() {
 
     let input_soutce_command_output = input_source_command.output().expect("Failed to execute ddcutil");
 
-    let input_reader = BufReader::new(&input_soutce_command_output.stdout[..]);
-    let first_line = input_reader.lines().next().unwrap().unwrap();
+    let mut input_reader = BufReader::new(&input_soutce_command_output.stdout[..]);
+
+    let mut first_line = String::new();
+    input_reader.read_line(&mut first_line).expect("reading stdout from ddcutil should not fail");
 
     let input_source_info: Vec<&str> = first_line.split_whitespace().collect();
     println!("Current Active Source: {:?}", input_source_info);
