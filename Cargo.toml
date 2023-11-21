@@ -10,8 +10,14 @@ license = "MIT"
 keywords = ["monitor", "kvm"]
 
 
+[package.metadata.deb]
+depends = "$auto"
+pre-depends = "ddcutil"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+
 
 
